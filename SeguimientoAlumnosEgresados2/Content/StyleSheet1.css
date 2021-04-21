@@ -1,0 +1,30 @@
+﻿body {
+    font-family: Roboto, 'Opens Sans', sans-serif;
+    background-color: #1b396a;
+}
+
+.menumenuCntainer {
+    background-color: #1b396a;
+}
+
+.menuContainer {
+    padding: 4px;
+    align-items: center;
+    background-color: #1b396a;
+}
+
+.menuItem {
+    display: inline-block;
+    color: white;
+    font-size: 25px;
+}
+
+    .menuItem > a {
+        padding: 8px;
+        color: white;
+        text-decoration: none;
+    }
+
+.renderb {
+    background-color: white;
+}

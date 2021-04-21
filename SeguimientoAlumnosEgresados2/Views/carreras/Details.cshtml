@@ -1,0 +1,27 @@
+﻿@model SeguimientoAlumnosEgresados2.Models.carrera
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>carrera</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreCarrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreCarrera)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCarrera }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

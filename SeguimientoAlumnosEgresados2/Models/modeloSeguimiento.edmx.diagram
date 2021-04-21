@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="044e6081f96c4763bfff00e70815e9e0" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="seguimiento2Model.carrera" Width="1.5" PointX="0.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="seguimiento2Model.exalumno" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="seguimiento2Model.historialacademico" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="seguimiento2Model.historialempleo" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="seguimiento2Model.publicacione" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="seguimiento2Model.publicacionesantigua" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="seguimiento2Model.fkidCarrera" ManuallyRouted="false" />
+        <AssociationConnector Association="seguimiento2Model.fknoControl" ManuallyRouted="false" />
+        <AssociationConnector Association="seguimiento2Model.fknoControlE" ManuallyRouted="false" />
+        <AssociationConnector Association="seguimiento2Model.fknoControlpa" ManuallyRouted="false" />
+        <AssociationConnector Association="seguimiento2Model.fknoControp" ManuallyRouted="false" />
+        <AssociationConnector Association="seguimiento2Model.fkidPublicacion" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

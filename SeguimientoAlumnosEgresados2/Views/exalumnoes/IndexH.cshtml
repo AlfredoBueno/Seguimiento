@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SeguimientoAlumnosEgresados2.Models.historialacademico>
+
+@{
+    ViewBag.Title = "IndexH";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/StyleSheetTables.css")
+
+<h2>IndexH</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateH")
+</p>
+<table class="tableit">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tituloH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcionH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rutaImg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.exalumno.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tituloH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcionH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rutaImg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.exalumno.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditH", new { id = item.idhistorialacademico }) |
+                @Html.ActionLink("Details", "DetailsH", new { id = item.idhistorialacademico }) |
+                @Html.ActionLink("Delete", "DeleteH", new { id = item.idhistorialacademico })
+            </td>
+        </tr>
+    }
+
+</table>

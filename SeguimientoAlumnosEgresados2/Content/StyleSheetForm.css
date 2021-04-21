@@ -1,0 +1,24 @@
+﻿body > div {
+    padding: 5px;
+}
+
+.divRegistro {
+    padding: 5px;
+}
+
+.form-group {
+    padding: 4px;
+}
+
+.req {
+    color: red;
+}
+
+input {
+    border-radius: 4px;
+    border: 1px solid;
+}
+
+.col-md-2 {
+    font-weight: bold;
+}

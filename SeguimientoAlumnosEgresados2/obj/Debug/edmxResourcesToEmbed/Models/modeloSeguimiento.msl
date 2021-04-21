@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="seguimiento2ModelStoreContainer" CdmEntityContainer="seguimiento2Entities">
+    <EntitySetMapping Name="carreras">
+      <EntityTypeMapping TypeName="seguimiento2Model.carrera">
+        <MappingFragment StoreEntitySet="carrera">
+          <ScalarProperty Name="idCarrera" ColumnName="idCarrera" />
+          <ScalarProperty Name="nombreCarrera" ColumnName="nombreCarrera" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exalumnoes">
+      <EntityTypeMapping TypeName="seguimiento2Model.exalumno">
+        <MappingFragment StoreEntitySet="exalumno">
+          <ScalarProperty Name="noControl" ColumnName="noControl" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="segundoNombre" ColumnName="segundoNombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="idCarrera" ColumnName="idCarrera" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+          <ScalarProperty Name="fechaEgreso" ColumnName="fechaEgreso" />
+          <ScalarProperty Name="rutaImg" ColumnName="rutaImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historialacademicoes">
+      <EntityTypeMapping TypeName="seguimiento2Model.historialacademico">
+        <MappingFragment StoreEntitySet="historialacademico">
+          <ScalarProperty Name="idhistorialacademico" ColumnName="idhistorialacademico" />
+          <ScalarProperty Name="noControl" ColumnName="noControl" />
+          <ScalarProperty Name="tituloH" ColumnName="tituloH" />
+          <ScalarProperty Name="descripcionH" ColumnName="descripcionH" />
+          <ScalarProperty Name="fechaH" ColumnName="fechaH" />
+          <ScalarProperty Name="rutaImg" ColumnName="rutaImg" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="historialempleos">
+      <EntityTypeMapping TypeName="seguimiento2Model.historialempleo">
+        <MappingFragment StoreEntitySet="historialempleo">
+          <ScalarProperty Name="idEmpleo" ColumnName="idEmpleo" />
+          <ScalarProperty Name="noControle" ColumnName="noControle" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="rutalogo" ColumnName="rutalogo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publicaciones">
+      <EntityTypeMapping TypeName="seguimiento2Model.publicacione">
+        <MappingFragment StoreEntitySet="publicaciones">
+          <ScalarProperty Name="idPublicacion" ColumnName="idPublicacion" />
+          <ScalarProperty Name="noControlP" ColumnName="noControlP" />
+          <ScalarProperty Name="titulop" ColumnName="titulop" />
+          <ScalarProperty Name="descripcionp" ColumnName="descripcionp" />
+          <ScalarProperty Name="fechap" ColumnName="fechap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="publicacionesantiguas">
+      <EntityTypeMapping TypeName="seguimiento2Model.publicacionesantigua">
+        <MappingFragment StoreEntitySet="publicacionesantiguas">
+          <ScalarProperty Name="idpublicacionesAntiguas" ColumnName="idpublicacionesAntiguas" />
+          <ScalarProperty Name="idPublicacion" ColumnName="idPublicacion" />
+          <ScalarProperty Name="noControlpa" ColumnName="noControlpa" />
+          <ScalarProperty Name="titulopa" ColumnName="titulopa" />
+          <ScalarProperty Name="descripcionpa" ColumnName="descripcionpa" />
+          <ScalarProperty Name="fechapa" ColumnName="fechapa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

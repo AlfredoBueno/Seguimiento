@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SeguimientoAlumnosEgresados2.Models.carrera>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/StyleSheetTables.css" rel="stylesheet" />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="tableit">
+    <tr>
+        <th>
+            <header>Clave</header>
+        </th>
+        <th>
+            <header>Nombre</header>       
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idCarrera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreCarrera)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.idCarrera }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idCarrera })
+        </td>
+    </tr>
+}
+
+</table>

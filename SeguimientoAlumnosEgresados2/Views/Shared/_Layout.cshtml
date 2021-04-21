@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    @Styles.Render("~/Content/StyleSheet1.css")
+</head>
+<body>
+    <div class="menumenuCntainer">
+        <ul class="menuContainer">
+            <li class="menuItem">@Html.ActionLink("Inicio", "Index", "Home")</li>
+            <li class="menuItem">@Html.ActionLink("Carreras", "Index", "carreras")</li>
+            <li class="menuItem">@Html.ActionLink("Alumnos", "Index", "exalumnoes")</li>
+            <li class="menuItem">@Html.ActionLink("Publicaciones", "Index", "publicacioneses")</li>
+        </ul>
+    </div>
+    <div class="renderb">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <hr />
+        <p style="color:white;">&copy; @DateTime.Now.Year - ITESRC</p>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>

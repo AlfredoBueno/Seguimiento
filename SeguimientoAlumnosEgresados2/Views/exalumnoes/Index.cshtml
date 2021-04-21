@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SeguimientoAlumnosEgresados2.Models.exalumno>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/StyleSheetTables.css")
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="tableit">
+    <tr>
+        <th>
+            <header>Nombre</header>
+        </th>
+        <th>
+            <header>Correo</header>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaEgreso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrera.nombreCarrera)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre) @Html.DisplayFor(modelItem => item.segundoNombre) @Html.DisplayFor(modelItem => item.apellido) @Html.DisplayFor(modelItem => item.segundoApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Convert.ToDateTime(item.fechaEgreso).ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.carrera.nombreCarrera)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.noControl }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.noControl }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.noControl })
+                @Html.ActionLink("Historial", "IndexH", new { id = item.noControl })
+
+            </td>
+        </tr>
+    }
+
+</table>

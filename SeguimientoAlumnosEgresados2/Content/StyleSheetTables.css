@@ -1,0 +1,36 @@
+﻿body > div {
+    padding: 5px;
+}
+
+.titleh2 {
+    text-align: center
+}
+
+p > button > a {
+    color: black;
+    text-decoration: none;
+}
+
+.tableit {
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    box-shadow: 0 12px 5px rgba(32,32,32,.3);
+}
+
+th {
+    background: #1b396a;
+    color: #fafafa;
+    text-transform: uppercase;
+}
+
+
+td, th {
+    padding: 10px 15px;
+}
+
+tr:nth-child(odd) {
+    background-color: #eeeeee;
+}

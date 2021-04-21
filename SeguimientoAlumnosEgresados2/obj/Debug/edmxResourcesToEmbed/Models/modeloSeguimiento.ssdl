@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="seguimiento2Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="idCarrera" />
+    </Key>
+    <Property Name="idCarrera" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="nombreCarrera" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="exalumno">
+    <Key>
+      <PropertyRef Name="noControl" />
+    </Key>
+    <Property Name="noControl" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="nombre" Type="char" MaxLength="14" Nullable="false" />
+    <Property Name="segundoNombre" Type="char" MaxLength="14" />
+    <Property Name="apellido" Type="char" MaxLength="14" Nullable="false" />
+    <Property Name="segundoApellido" Type="char" MaxLength="14" Nullable="false" />
+    <Property Name="correo" Type="varchar" MaxLength="45" />
+    <Property Name="clave" Type="varchar" MaxLength="45" />
+    <Property Name="idCarrera" Type="char" MaxLength="1" />
+    <Property Name="telefono" Type="char" MaxLength="10" />
+    <Property Name="fechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="fechaEgreso" Type="date" Nullable="false" />
+    <Property Name="rutaImg" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="historialacademico">
+    <Key>
+      <PropertyRef Name="idhistorialacademico" />
+    </Key>
+    <Property Name="idhistorialacademico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noControl" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="tituloH" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="descripcionH" Type="text" Nullable="false" />
+    <Property Name="fechaH" Type="date" />
+    <Property Name="rutaImg" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="historialempleo">
+    <Key>
+      <PropertyRef Name="idEmpleo" />
+    </Key>
+    <Property Name="idEmpleo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noControle" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="empresa" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="cargo" Type="varchar" MaxLength="45" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="rutalogo" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="publicaciones">
+    <Key>
+      <PropertyRef Name="idPublicacion" />
+    </Key>
+    <Property Name="idPublicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="noControlP" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="titulop" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="descripcionp" Type="text" Nullable="false" />
+    <Property Name="fechap" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="publicacionesantiguas">
+    <Key>
+      <PropertyRef Name="idpublicacionesAntiguas" />
+    </Key>
+    <Property Name="idpublicacionesAntiguas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idPublicacion" Type="int" Nullable="false" />
+    <Property Name="noControlpa" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="titulopa" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="descripcionpa" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="fechapa" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="fkidCarrera">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="0..1" />
+    <End Role="exalumno" Type="Self.exalumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="idCarrera" />
+      </Principal>
+      <Dependent Role="exalumno">
+        <PropertyRef Name="idCarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkidPublicacion">
+    <End Role="publicaciones" Type="Self.publicaciones" Multiplicity="1" />
+    <End Role="publicacionesantiguas" Type="Self.publicacionesantiguas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="publicaciones">
+        <PropertyRef Name="idPublicacion" />
+      </Principal>
+      <Dependent Role="publicacionesantiguas">
+        <PropertyRef Name="idPublicacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fknoControl">
+    <End Role="exalumno" Type="Self.exalumno" Multiplicity="1" />
+    <End Role="historialacademico" Type="Self.historialacademico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exalumno">
+        <PropertyRef Name="noControl" />
+      </Principal>
+      <Dependent Role="historialacademico">
+        <PropertyRef Name="noControl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fknoControlE">
+    <End Role="exalumno" Type="Self.exalumno" Multiplicity="1" />
+    <End Role="historialempleo" Type="Self.historialempleo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exalumno">
+        <PropertyRef Name="noControl" />
+      </Principal>
+      <Dependent Role="historialempleo">
+        <PropertyRef Name="noControle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fknoControlpa">
+    <End Role="exalumno" Type="Self.exalumno" Multiplicity="1" />
+    <End Role="publicacionesantiguas" Type="Self.publicacionesantiguas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exalumno">
+        <PropertyRef Name="noControl" />
+      </Principal>
+      <Dependent Role="publicacionesantiguas">
+        <PropertyRef Name="noControlpa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fknoControp">
+    <End Role="exalumno" Type="Self.exalumno" Multiplicity="1" />
+    <End Role="publicaciones" Type="Self.publicaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exalumno">
+        <PropertyRef Name="noControl" />
+      </Principal>
+      <Dependent Role="publicaciones">
+        <PropertyRef Name="noControlP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="seguimiento2ModelStoreContainer">
+    <EntitySet Name="carrera" EntityType="Self.carrera" Schema="seguimiento2" store:Type="Tables" />
+    <EntitySet Name="exalumno" EntityType="Self.exalumno" Schema="seguimiento2" store:Type="Tables" />
+    <EntitySet Name="historialacademico" EntityType="Self.historialacademico" Schema="seguimiento2" store:Type="Tables" />
+    <EntitySet Name="historialempleo" EntityType="Self.historialempleo" Schema="seguimiento2" store:Type="Tables" />
+    <EntitySet Name="publicaciones" EntityType="Self.publicaciones" Schema="seguimiento2" store:Type="Tables" />
+    <EntitySet Name="publicacionesantiguas" EntityType="Self.publicacionesantiguas" Schema="seguimiento2" store:Type="Tables" />
+    <AssociationSet Name="fkidCarrera" Association="Self.fkidCarrera">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="exalumno" EntitySet="exalumno" />
+    </AssociationSet>
+    <AssociationSet Name="fkidPublicacion" Association="Self.fkidPublicacion">
+      <End Role="publicaciones" EntitySet="publicaciones" />
+      <End Role="publicacionesantiguas" EntitySet="publicacionesantiguas" />
+    </AssociationSet>
+    <AssociationSet Name="fknoControl" Association="Self.fknoControl">
+      <End Role="exalumno" EntitySet="exalumno" />
+      <End Role="historialacademico" EntitySet="historialacademico" />
+    </AssociationSet>
+    <AssociationSet Name="fknoControlE" Association="Self.fknoControlE">
+      <End Role="exalumno" EntitySet="exalumno" />
+      <End Role="historialempleo" EntitySet="historialempleo" />
+    </AssociationSet>
+    <AssociationSet Name="fknoControlpa" Association="Self.fknoControlpa">
+      <End Role="exalumno" EntitySet="exalumno" />
+      <End Role="publicacionesantiguas" EntitySet="publicacionesantiguas" />
+    </AssociationSet>
+    <AssociationSet Name="fknoControp" Association="Self.fknoControp">
+      <End Role="exalumno" EntitySet="exalumno" />
+      <End Role="publicaciones" EntitySet="publicaciones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
