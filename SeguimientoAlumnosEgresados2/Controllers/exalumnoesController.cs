@@ -134,7 +134,7 @@ namespace SeguimientoAlumnosEgresados2.Controllers
         }
 
         //Historial academico empieza aqui
-        string controln;
+        //string controln;
 
         public ActionResult IndexH(string id)
         {
@@ -142,9 +142,16 @@ namespace SeguimientoAlumnosEgresados2.Controllers
             //historialAcademico.Where(e => e.noControl == noControl);
             if (id != null)
             {
-                controln = id;
+                TempData["nCont"] = id;
+                //controln = id;               
             }
-            return View(historialAcademico.Where(e => e.noControl == controln).ToList());
+            else
+            {
+                id = TempData["nCont"].ToString();
+            }
+            //return View(historialAcademico.Where(e => e.noControl == controln).ToList());
+            return View(historialAcademico.Where(e => e.noControl == id).ToList());
+
         }
 
 
