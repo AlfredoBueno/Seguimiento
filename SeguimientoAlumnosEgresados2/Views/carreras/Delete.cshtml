@@ -4,6 +4,7 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link href="~/Content/StyleSheetForm.css" rel="stylesheet" />
 
 <h2>Delete</h2>
 
@@ -13,7 +14,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.nombreCarrera)
+            <label class="col-md-2">Nombre de la carrera:</label>
         </dt>
 
         <dd>
@@ -22,7 +23,8 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

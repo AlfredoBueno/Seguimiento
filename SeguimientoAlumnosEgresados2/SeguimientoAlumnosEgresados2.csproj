@@ -269,6 +269,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Img\perfprev.png" />
     <Content Include="Models\modeloSeguimiento.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>modeloSeguimiento.edmx</DependentUpon>

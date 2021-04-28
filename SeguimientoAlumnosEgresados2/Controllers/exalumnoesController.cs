@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SeguimientoAlumnosEgresados2.Models;
+using System.IO;
 
 namespace SeguimientoAlumnosEgresados2.Controllers
 {
@@ -48,10 +49,13 @@ namespace SeguimientoAlumnosEgresados2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "noControl,nombre,segundoNombre,apellido,segundoApellido,correo,clave,idCarrera,telefono,fechaNacimiento,fechaEgreso,rutaImg")] exalumno exalumno)
+        public ActionResult Create([Bind(Include = "noControl,nombre,segundoNombre,apellido,segundoApellido,correo,clave,idCarrera,telefono,fechaNacimiento,fechaEgreso")] exalumno exalumno)
         {
+     
+
             if (ModelState.IsValid)
             {
+
                 db.exalumnoes.Add(exalumno);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -166,17 +170,20 @@ namespace SeguimientoAlumnosEgresados2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateH([Bind(Include = "idhistorialacademico,noControl,fechah,tituloh,descripcionh,rutaImg")] historialacademico historial)
+        public ActionResult CreateH([Bind(Include = "idhistorialacademico,noControl,fechah,tituloh,descripcionh,rutaImg")] historialacademico historial )
+        //public ActionResult CreateH([Bind(Include = "idhistorialacademico,noControl,fechah,tituloh,descripcionh,rutaImg")] historialacademico historial)
         {
+
             if (ModelState.IsValid)
             {
                 db.historialacademicoes.Add(historial);
+                var code = historial.noControl;
                 db.SaveChanges();
-                return RedirectToAction("IndexH");
+                return RedirectToAction("IndexH", new { id = code });
             }
 
             ViewBag.NoControl = new SelectList(db.exalumnoes, "noControl", "nombre", historial.noControl);
-            return View("IndexH");
+            return View("IndexH", new { id = historial.noControl });
         }
 
         // GET: eventoacademicoes/Edit/5
@@ -200,13 +207,15 @@ namespace SeguimientoAlumnosEgresados2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idhistorialacademico,noControl,fechah,tituloh,descripcionh,rutaImg")] historialacademico historial)
+        public ActionResult EditH([Bind(Include = "idhistorialacademico,noControl,tituloH,descripcionH,fechaH,rutaImg")] historialacademico historial)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(historial).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("IndexH");
+                return RedirectToAction("IndexH", new { id = historial.noControl });
+
+
             }
             ViewBag.NoControl = new SelectList(db.exalumnoes, "noControl", "nombre", historial.noControl);
             return View(historial);
@@ -233,9 +242,10 @@ namespace SeguimientoAlumnosEgresados2.Controllers
         public ActionResult DeleteConfirmedH(int id)
         {
             historialacademico historial = db.historialacademicoes.Find(id);
+            var code = historial.noControl;
             db.historialacademicoes.Remove(historial);
             db.SaveChanges();
-            return RedirectToAction("IndexH");
+            return RedirectToAction("IndexH", new { id = code });
         }
 
     }
